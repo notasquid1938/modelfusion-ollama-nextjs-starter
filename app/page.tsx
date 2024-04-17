@@ -1,17 +1,17 @@
 "use client";
 
 import { useChat } from "ai/react";
+import styles from "./styles/page.module.css"; 
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   return (
-    <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
+    <div className={styles.chatContainer}>
       {messages.map((message) => (
         <div
           key={message.id}
-          className="whitespace-pre-wrap"
-          style={{ color: message.role === "user" ? "black" : "green" }}
+          className={`${styles.message} ${message.role === "user" ? styles.userMessage : styles.botMessage}`}
         >
           <strong>{`${message.role}: `}</strong>
           {message.content}
@@ -22,7 +22,7 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit}>
         <input
-          className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl"
+          className={styles.inputField}
           value={input}
           placeholder="Say something..."
           onChange={handleInputChange}
@@ -31,3 +31,4 @@ export default function Chat() {
     </div>
   );
 }
+

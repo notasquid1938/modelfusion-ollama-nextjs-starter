@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
   // Use ModelFusion to call Ollama:
   const textStream = await streamText({
-    model: ollama.ChatTextGenerator({ model: "llama2:chat" }).withChatPrompt(),
+    model: ollama.ChatTextGenerator({ model: "mistral:7b-instruct-q6_K" }).withChatPrompt(),
     prompt: {
       system:
         "You are an AI chat bot. " +
@@ -27,16 +27,16 @@ export async function POST(req: Request) {
       // optional callbacks:
       {
         onStart() {
-          console.log("onStart");
+          //console.log("onStart");
         },
         onToken(token) {
-          console.log("onToken", token);
+          //console.log("onToken", token);
         },
         onCompletion: () => {
-          console.log("onCompletion");
+          //console.log("onCompletion");
         },
         onFinal(completion) {
-          console.log("onFinal", completion);
+          //console.log("onFinal", completion);
         },
       }
     )
