@@ -9,12 +9,13 @@ exports.POST = async function(req) {
 
   // Use ModelFusion to call Ollama:
   const textStream = await streamText({
-    model: ollama.ChatTextGenerator({ model: "mistral:7b-instruct-q6_K" }).withChatPrompt(),
+    model: ollama.ChatTextGenerator({ 
+      model: "rizzler:latest",
+      stopSequences: ['<|im_end|>']
+     })
+      .withChatPrompt(),
     prompt: {
-      system:
-        "You are an AI chat bot. " +
-        "Follow the user's instructions carefully.",
-
+      // system:
       // map Vercel AI SDK Message to ModelFusion ChatMessage:
       messages: asChatMessages(messages),
     },
