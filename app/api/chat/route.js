@@ -1,11 +1,11 @@
-import { ModelFusionTextStream, asChatMessages } from "@modelfusion/vercel-ai";
-import { Message, StreamingTextResponse } from "ai";
-import { ollama, streamText } from "modelfusion";
+const { ModelFusionTextStream, asChatMessages } = require("@modelfusion/vercel-ai");
+const { Message, StreamingTextResponse } = require("ai");
+const { ollama, streamText } = require("modelfusion");
 
-export const runtime = "edge";
+exports.runtime = "edge";
 
-export async function POST(req: Request) {
-  const { messages }: { messages: Message[] } = await req.json();
+exports.POST = async function(req) {
+  const { messages } = await req.json();
 
   // Use ModelFusion to call Ollama:
   const textStream = await streamText({
