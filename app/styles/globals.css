@@ -1,1 +1,10 @@
-
+:root {
+    --background-color: black;
+    --text-color: rgb(213, 213, 213);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+  }

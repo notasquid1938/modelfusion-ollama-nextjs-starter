@@ -1,34 +1,55 @@
 .chatContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px; /* Adjust as needed */
-    padding-top: 24px;
-    margin: auto;
-  }
-  
-  .message {
-    white-space: pre-wrap;
-    margin-bottom: 16px;
-  }
-  
-  .userMessage {
-    color: black;
-  }
-  
-  .botMessage {
-    color: green;
-  }
-  
-  .inputField {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 400px; /* Adjust as needed */
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  padding-top: 24px;
+  margin: auto;
+}
+
+.chatMessages {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.messageContent {
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #f1f1f1;
+  white-space: pre-wrap;
+}
+
+.userMessage .messageContent {
+  background-color: #e6f7ff;
+  align-self: flex-end;
+}
+
+.botMessage .messageContent {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+
+.inputContainer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
